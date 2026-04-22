@@ -1,0 +1,19 @@
+{
+  "FileVersion": 3,
+  "Version": 2,
+  "VersionName": "0.2.0",
+  "FriendlyName": "Code Maestro Bridge",
+  "Description": "Connects Unreal Editor to Code Maestro Desktop via the CodeMaestroRuntime DLL",
+  "Category": "Editor",
+  "CreatedBy": "Code Maestro",
+  "EnabledByDefault": true,
+  "CanContainContent": false,
+  "IsBetaVersion": true,
+  "Modules": [
+    {
+      "Name": "CodeMaestroBridge",
+      "Type": "Editor",
+      "LoadingPhase": "PostEngineInit"
+    }
+  ]
+}
