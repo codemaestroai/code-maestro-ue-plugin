@@ -1,50 +1,53 @@
-# Code Maestro — UE Bridge (Releases)
+# Code Maestro — UE Bridge
 
-Release channel for **Code Maestro UE Bridge** — an Unreal Engine 5.7 editor plugin that connects your UE project to [Code Maestro](https://codemaestro.com).
+**Work with Unreal Engine using natural language through [Code Maestro](https://www.code-maestro.com/).**
 
-> **This repo contains release artifacts only.** Source code lives in a private development repository. Use the CM Desktop app to install the plugin automatically, or download the release assets below for a manual install.
+Instead of clicking through the editor and writing glue code yourself, describe what you want and let an agent read your project, navigate Blueprints, and answer questions grounded in your code.
 
-## Install (recommended)
+```
+"Explain how health regeneration works in this project"
+"Open the Blueprint that handles the main menu"
+"Show me every class that inherits from AEnemyBase"
+```
 
-Install [Code Maestro Desktop](https://codemaestro.com/download) and point it at your UE project. CM Desktop's in-editor wizard fetches the latest release from this repo, stages the plugin into your project's `Plugins/` directory, and lets UE compile it on next open.
+## Quick Start
 
-## Manual install
+**1. Install Code Maestro Desktop**
 
-1. Download both assets from the [latest release](https://github.com/codemaestroai/code-maestro-ue-plugin/releases/latest):
-   - `CodeMaestroBridge-source.zip` — the UE plugin source
-   - `CodeMaestroRuntime.dll` — the networking runtime the plugin loads at startup
-2. Extract the zip into `<YourProject>/Plugins/CodeMaestroBridge/`
-3. Drop `CodeMaestroRuntime.dll` into `<YourProject>/Plugins/CodeMaestroBridge/Binaries/Win64/`
-4. Open your UE project; it will prompt to build the plugin module the first time
+Download and install [Code Maestro Desktop](https://www.code-maestro.com/). Open it and point it at your UE project.
+
+**2. Install the plugin**
+
+CM Desktop's install wizard fetches the plugin from this repo's latest release, stages it into your project's `Plugins/` directory, and lets UE compile it on next open.
+
+**3. Start talking**
+
+Open your project in the Unreal Editor. The Code Maestro toolbar widget appears in the Level Editor. Connected? You're ready.
+
+## Manual Install
+
+If you prefer a manual install, grab the two assets from the [latest release](https://github.com/codemaestroai/code-maestro-ue-plugin/releases/latest):
+
+1. Extract `CodeMaestroBridge-source.zip` into `<YourProject>/Plugins/CodeMaestroBridge/`
+2. Drop `CodeMaestroRuntime.dll` into `<YourProject>/Plugins/CodeMaestroBridge/Binaries/Win64/`
+3. Open your project — UE will prompt to build the plugin module the first time
+
+## What UE Bridge Can Do
+
+**Editor State** — live queries of open assets, selected actors, PIE lifecycle
+**Blueprint Navigation** — open Blueprints by name, inspect variables and graphs
+**Project Understanding** — grounded answers about your C++ and Blueprint code
+**Agent Workflows** — Investigate, Implement, and other agents tuned for UE projects
 
 ## Compatibility
 
 | Platform | Status |
 |---|---|
-| Windows (UE 5.7) | Supported |
+| Windows · UE 5.7 | Supported |
 | macOS | Planned |
-| Linux | Not planned |
 
-The plugin is **editor-only** (`"Type": "Editor"` in the `.uplugin`) — it loads in the Unreal Editor and does not ship in cooked or packaged builds. No runtime footprint in your shipped game.
+The plugin is editor-only and does not ship in cooked or packaged builds — no runtime footprint in your shipped game.
 
-## Architecture
+## Issues
 
-The plugin is split into two parts:
-
-- **`CodeMaestroBridge`** — a thin UE editor plugin that registers tool callbacks (editor state, Blueprint queries, PIE lifecycle hooks) and dynamically loads the runtime DLL
-- **`CodeMaestroRuntime.dll`** — a standalone C++17 shared library that owns WebSocket connection, session management, and tool protocol. No UE dependency
-
-They talk through a small, version-gated C ABI. The runtime DLL can be updated independently of the plugin source, and vice versa.
-
-## Versioning
-
-Release tags are semver (`v0.2.0`). Pre-releases are tagged `vX.Y.Z-test` or `vX.Y.Z-rc1` and are hidden from CM Desktop's auto-update check.
-
-## License
-
-See [LICENSE](LICENSE).
-
-## Links
-
-- [Code Maestro homepage](https://codemaestro.com)
-- [Report an issue](https://github.com/codemaestroai/code-maestro-ue-plugin/issues)
+[Report an issue](https://github.com/codemaestroai/code-maestro-ue-plugin/issues) or reach out through [Code Maestro](https://www.code-maestro.com/).
