@@ -26,11 +26,13 @@ Open your project in the Unreal Editor. The Code Maestro toolbar widget appears 
 
 ## Manual Install
 
-If you prefer a manual install, grab the two assets from the [latest release](https://github.com/codemaestroai/code-maestro-ue-plugin/releases/latest):
+Grab the two assets from the [latest release](https://github.com/codemaestroai/code-maestro-ue-plugin/releases/latest):
 
 1. Extract `CodeMaestroBridge-source.zip` into `<YourProject>/Plugins/CodeMaestroBridge/`
 2. Drop `CodeMaestroRuntime.dll` into `<YourProject>/Plugins/CodeMaestroBridge/Binaries/Win64/`
 3. Open your project — UE will prompt to build the plugin module the first time
+
+Alternatively, the plugin source is browsable in [`CodeMaestroBridge/`](./CodeMaestroBridge/). You can clone the repo or copy the directory directly into your project's `Plugins/`, then grab `CodeMaestroRuntime.dll` from the latest release.
 
 ## What UE Bridge Can Do
 
@@ -41,9 +43,11 @@ If you prefer a manual install, grab the two assets from the [latest release](ht
 
 ## Compatibility
 
-| Platform | Status |
+| Engine Version | Status |
 |---|---|
-| Windows · UE 5.7 | Supported |
+| UE 5.7 · Windows | Supported |
+| UE 5.5 · Windows | Experimental |
+| UE 5.4 · Windows | Experimental |
 | macOS | Planned |
 
 The plugin is editor-only and does not ship in cooked or packaged builds — no runtime footprint in your shipped game.
